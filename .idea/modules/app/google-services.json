@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1051525020378",
+    "firebase_url": "https://oblopgave.firebaseio.com",
+    "project_id": "oblopgave",
+    "storage_bucket": "oblopgave.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051525020378:android:7d50af0c91689b0e8e83e3",
+        "android_client_info": {
+          "package_name": "com.example.oblopgave"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051525020378-9hurocke45tm0tam6jtvqmhuv62qajvj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.oblopgave",
+            "certificate_hash": "e73863cd1a682d806dfc78b5541cfc83b2712e97"
+          }
+        },
+        {
+          "client_id": "1051525020378-u14hb86938vmlf7ge6s1ukqrvthmlop1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeufypj7QHsrwpwVuXu9-UJ_abJtD7zUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1051525020378-u14hb86938vmlf7ge6s1ukqrvthmlop1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
