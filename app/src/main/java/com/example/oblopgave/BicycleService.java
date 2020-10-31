@@ -10,4 +10,10 @@ public interface BicycleService {
     @GET("bicycles")
     Call<List<Bicycle>> getAllBicycles();
 
+    @GET("bicycles/missing")
+    Call<List<Bicycle>> getAllMissingBikes();
+
+    @GET("Bicycles/found")
+    Call<List<Bicycle>> getAllFoundBikes();
+
 }

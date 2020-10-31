@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         if(currentUser == null) {
             MessageView.setText("Ingen er logget ind");
         } else {
-            Intent intent = new Intent(MainActivity.this, Index.class);
+            Intent intent = new Intent(MainActivity.this, BicycleList.class);
             startActivity(intent);
         }
     }
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             MessageView.setText("Velkommen" + user.getEmail());
-                            Intent intent = new Intent(MainActivity.this, Index.class);
+                            Intent intent = new Intent(MainActivity.this, BicycleList.class);
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -81,5 +81,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    public void GoToList(View view) {
+        Intent intent = new Intent(MainActivity.this, BicycleList.class);
+        startActivity(intent);
+    }
 }

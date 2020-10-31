@@ -4,7 +4,7 @@ public class ApiUtils {
     private ApiUtils() {
     }
 
-    private static final String BASE_URL = "https://anbo-bicyclefinder.azurewebsites.net/api/bicycles/";
+    private static final String BASE_URL = "https://anbo-bicyclefinder.azurewebsites.net/api/";
 
     public static BicycleService getBicycleService() {
 

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".Index">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +13,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/AllButton1"
+            android:id="@+id/AllButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -22,7 +21,7 @@
             android:text="All Bikes" />
 
         <Button
-            android:id="@+id/FoundButton1"
+            android:id="@+id/FoundButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -30,7 +29,7 @@
             android:text="Found" />
 
         <Button
-            android:id="@+id/MissingButton1"
+            android:id="@+id/MissingButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -45,7 +44,7 @@
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/MainRecyclerView1"
+            android:id="@+id/MainRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -59,13 +58,12 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/signOutButton1"
+            android:id="@+id/signOutButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="SignOut"
-            android:text="Sign out" />
+            android:text="Sign out/ Go back" />
     </LinearLayout>
-
 
 </LinearLayout>

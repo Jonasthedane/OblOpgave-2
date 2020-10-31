@@ -4,11 +4,30 @@ import androidx.annotation.NonNull;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 
 import java.io.Serializable;
 
 
-public class Bicycle {
+public class Bicycle implements Serializable{
+
+
+    public Bicycle(){
+    }
+    public Bicycle(int id, String frameNumber, String kindOfBicycle, String brand, String colors, String place, String date, int userId, String missingFound){
+        setId(id);
+        setFrameNumber(frameNumber);
+        setKindOfBicycle(kindOfBicycle);
+        setBrand(brand);
+        setColors(colors);
+        setPlace(place);
+        setDate(date);
+        setUserId(userId);
+        setMissingFound(missingFound);
+    }
+
+
     @SerializedName("id")
     @Expose
     private Integer id;
@@ -143,7 +162,11 @@ public class Bicycle {
     }
 
 
-
+    @Override
+    public String toString() {
+        return "" + frameNumber;
+        //return new ToStringBuilder(this).append("id", id).append("frameNumber", frameNumber).append("kindOfBicycle", kindOfBicycle).append("brand", brand).append("colors", colors).append("place", place).append("date", date).append("userId", userId).append("missingFound", missingFound).append("firebaseUserId", firebaseUserId).append("name", name).append("phone", phone).toString();
+    }
 
 }
 
