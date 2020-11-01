@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -40,11 +42,38 @@ public class BicycleList extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(BicycleList.this, AddBicycle.class);
+                startActivity(intent);
             }
         });
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu ) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_back:
+                if (mAuth.getInstance().getCurrentUser() == null) {
+                    finish();
+                } else {
+                    mAuth.getInstance().signOut();
+                    finish();
+                }
+                return true;
+
+
+            default:
+
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
 
     public void GetBikes(View view) {
         BicycleService bicycleService = ApiUtils.getBicycleService();

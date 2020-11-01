@@ -80,5 +80,12 @@
         android:layout_height="wrap_content"
         android:text="" />
 
+    <Button
+        android:id="@+id/DeleteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:onClick="DeleteBicycle"/>
+
 
 </LinearLayout>

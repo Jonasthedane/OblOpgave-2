@@ -17,6 +17,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class register extends AppCompatActivity {
     private static final String TAG = "Registrer";
     private FirebaseAuth mAuth;
@@ -37,8 +41,12 @@ public class register extends AppCompatActivity {
     public void Registrer(View view) {
         EditText EmailInput = findViewById(R.id.RegistrerEmail);
         EditText PasswordInput = findViewById(R.id.RegistrerPassword);
+        EditText NameInput = findViewById(R.id.RegisterName);
+        EditText PhoneInput = findViewById(R.id.RegisterPhone);
         String email = EmailInput.getText().toString();
         String password = PasswordInput.getText().toString();
+        String name = NameInput.getText().toString();
+        String phone = PhoneInput.getText().toString();
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -49,6 +57,8 @@ public class register extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             MessageView.setText("Din bruger blev registreret");
+                            AddUserToREST(name, phone, user.getUid());
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -63,6 +73,29 @@ public class register extends AppCompatActivity {
 
     }
 
+
+    public void AddUserToREST(String name, String phone, String fireBaseId) {
+        Users UsersToAdd = new Users(name, phone, fireBaseId);
+
+        Call<Users> callAddUsers = ApiUtils.getBicycleService().postUser(UsersToAdd);
+        callAddUsers.enqueue(new Callback<Users>() {
+            @Override
+            public void onResponse(Call<Users> call, Response<Users> response) {
+                if (response.isSuccessful()) {
+                    MessageView.setText("User Added");
+
+                } else {
+                    MessageView.setText("Something went wrong");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Users> call, Throwable t) {
+                MessageView.setText("Something went wrong");
+            }
+        });
+
+    }
 
 
     public void GoToMain(View view) {
