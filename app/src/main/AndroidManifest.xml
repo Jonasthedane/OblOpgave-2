@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddBicycle"></activity>
+        <activity android:name=".SingleBikeActivityKotlin"></activity>
+        <activity android:name=".AddBicycle" />
         <activity
             android:name=".BicycleList"
             android:label="@string/title_activity_bicycle_list"

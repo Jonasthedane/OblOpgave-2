@@ -214,8 +214,8 @@ public class BicycleList extends AppCompatActivity {
         adapter.setOnItemClickListener((view, position, item) -> {
             Bicycle bicycle = (Bicycle) item;
             Log.d(LOG_TAG, item.toString());
-            Intent intent = new Intent(this, SingleBikeActivity.class);
-            intent.putExtra(SingleBikeActivity.BICYCLE, bicycle);
+            Intent intent = new Intent(this, SingleBikeActivityKotlin.class);
+            intent.putExtra(SingleBikeActivityKotlin.BICYCLE, bicycle);
             Log.d(LOG_TAG, "putExtra " + bicycle.toString());
             startActivity(intent);
         });
