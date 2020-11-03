@@ -40,19 +40,19 @@ public class AddBicycle extends AppCompatActivity {
 
     public void AddBike(View view) {
 
-        AddBikeToRest(inputFrameNumber.getText().toString(), inputKindOfBicycle.getText().toString(), inputBrand.getText().toString(), inputColors.getText().toString(), inputPlace.getText().toString(), inputMissingFound.getText().toString(), firebaseId) ;
+        //AddBikeToRest(inputFrameNumber.getText().toString(), inputKindOfBicycle.getText().toString(), inputBrand.getText().toString(), inputColors.getText().toString(), inputPlace.getText().toString(), inputMissingFound.getText().toString(), firebaseId) ;
+        GetUserAndPostBicycle(firebaseId);
     }
 
-    public void AddBikeToRest(String frameNumber, String kindOfBicycle, String brand, String colors, String place, String missingFound, String firebaseUserId) {
-        Bicycle bikeToAdd = new Bicycle(frameNumber, kindOfBicycle, brand, colors, place, missingFound, firebaseUserId);
+    public void AddBikeToRest(Bicycle b) {
 
-        Call<Bicycle> callAddBike = ApiUtils.getBicycleService().postBicycle(bikeToAdd);
+        Call<Bicycle> callAddBike = ApiUtils.getBicycleService().postBicycle(b);
         callAddBike.enqueue(new Callback<Bicycle>() {
             @Override
             public void onResponse(Call<Bicycle> call, Response<Bicycle> response) {
-                Toast.makeText(AddBicycle.this, bikeToAdd.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(AddBicycle.this, b.toString(), Toast.LENGTH_SHORT).show();
                 if (response.isSuccessful()) {
-                    Toast.makeText(AddBicycle.this, "Bike added", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(AddBicycle.this, "Bike added", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(AddBicycle.this, "Failed", Toast.LENGTH_SHORT).show();
 
@@ -67,7 +67,7 @@ public class AddBicycle extends AppCompatActivity {
     }
 
 
-    public void GetUser(String idFirebase) {
+    public void GetUserAndPostBicycle(String idFirebase) {
 
 
         Call<Users> callSingleUser = ApiUtils.getBicycleService().getOneUser(firebaseId);
@@ -75,8 +75,21 @@ public class AddBicycle extends AppCompatActivity {
             @Override
             public void onResponse(Call<Users> call, Response<Users> response) {
                 if(response.isSuccessful()) {
-                    Users userToReturn = response.body();
-
+                    if (response.body() != null) {
+                        Bicycle bike = new Bicycle(inputFrameNumber.getText().toString(),
+                                inputKindOfBicycle.getText().toString(),
+                                inputBrand.getText().toString(),
+                                inputColors.getText().toString(),
+                                inputPlace.getText().toString(),
+                                inputMissingFound.getText().toString(),
+                                firebaseId,
+                                response.body().getName(),
+                                response.body().getPhone());
+                        AddBikeToRest(bike);
+                        //Toast.makeText(AddBicycle.this, "Bike added", Toast.LENGTH_SHORT).show();
+                    } else {
+                        //Toast.makeText(AddBicycle.this, "Bike broke", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
@@ -85,6 +98,7 @@ public class AddBicycle extends AppCompatActivity {
 
             }
         });
+        //return userToReturn;
 
     }
 

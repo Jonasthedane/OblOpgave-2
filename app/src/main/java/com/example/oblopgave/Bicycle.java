@@ -26,6 +26,22 @@ public class Bicycle implements Serializable{
         setUserId(-1);
         setFirebaseUserId(firebaseUserId);
         setMissingFound(missingFound);
+
+    }
+
+    public Bicycle(String frameNumber, String kindOfBicycle, String brand, String colors, String place, String missingFound, String firebaseUserId, String name, String phone){
+        setId(0);
+        setFrameNumber(frameNumber);
+        setKindOfBicycle(kindOfBicycle);
+        setBrand(brand);
+        setColors(colors);
+        setPlace(place);
+        setDate("");
+        setUserId(-1);
+        setFirebaseUserId(firebaseUserId);
+        setMissingFound(missingFound);
+        setName(name);
+        setPhone(phone);
     }
 
 

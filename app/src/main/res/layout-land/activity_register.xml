@@ -13,11 +13,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Registrer"
-        android:textSize="50dp"
+        android:textSize="40dp"
         android:textAlignment="center"/>
 
     <EditText
-        android:layout_marginBottom="50dp"
+
         android:id="@+id/RegisterName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
         android:hint="Name"/>
 
     <EditText
-        android:layout_marginBottom="50dp"
+
         android:id="@+id/RegisterPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
         android:hint="Phone"/>
 
     <EditText
-        android:layout_marginBottom="50dp"
+
         android:id="@+id/RegistrerEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,13 +55,6 @@
         android:onClick="Registrer"/>
 
 
-    <Button
-        android:id="@+id/RegistrerBackButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:onClick="GoToMain"/>
-
     <TextView
         android:id="@+id/RegistrerMessageView"
         android:layout_width="match_parent"
@@ -69,5 +62,12 @@
         android:text=""
         android:textAlignment="center"
         />
+
+    <Button
+        android:id="@+id/RegistrerBackButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:onClick="GoToMain"/>
 
 </LinearLayout>
